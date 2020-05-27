@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab8", "lab8.csproj", "{0E6B4576-1076-4D55-B064-02506A9388B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "ClassLib\ClassLib.csproj", "{041DEDD5-4910-4C68-9B4E-2CB37941F960}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E6B4576-1076-4D55-B064-02506A9388B8}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{0E6B4576-1076-4D55-B064-02506A9388B8}.Debug|anycpu.Build.0 = Debug|anycpu
+		{0E6B4576-1076-4D55-B064-02506A9388B8}.Release|anycpu.ActiveCfg = Release|anycpu
+		{0E6B4576-1076-4D55-B064-02506A9388B8}.Release|anycpu.Build.0 = Release|anycpu
+		{041DEDD5-4910-4C68-9B4E-2CB37941F960}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{041DEDD5-4910-4C68-9B4E-2CB37941F960}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{041DEDD5-4910-4C68-9B4E-2CB37941F960}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{041DEDD5-4910-4C68-9B4E-2CB37941F960}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
