@@ -62,11 +62,33 @@ namespace lab8
 
 
 
-            foreach (Dictionary<string,string> item in dict.Values)
+            idColumn.PackStart(IDCell, true);
+            idColumn.AddAttribute(IDCell, "text", 0);
+            nameColumn.PackStart(NameCell, true);
+            nameColumn.AddAttribute(NameCell, "text", 1);
+            hColumn.PackStart(Cell1, true);
+            hColumn.AddAttribute(Cell1, "text", 2);
+            oColumn.PackStart(Cell2, true);
+            oColumn.AddAttribute(Cell2, "text", 3);
+            sColumn.PackStart(Cell3, true);
+            sColumn.AddAttribute(Cell3, "text", 4);
+            cColumn.PackStart(Cell4, true);
+            cColumn.AddAttribute(Cell4, "text", 5);
+            tColumn.PackStart(Cell5, true);
+            tColumn.AddAttribute(Cell5, "text", 6);
+            lColumn.PackStart(Cell6, true);
+            lColumn.AddAttribute(Cell6, "text", 7);
+
+
+
+            foreach (Dictionary<string, string> item in dict.Values)
             {
                 viewListStore.AppendValues(item["ID"], item[cn[0]], item[cn[1]], item[cn[2]],
                     item[cn[3]], item[cn[4]], item[cn[5]], item[cn[6]]);
-                
+            }
+
+            ViewTree2.ShowAll();
+                /*
                 idColumn.PackStart(IDCell, true);
                 idColumn.AddAttribute(IDCell, "text", 0);
 
@@ -103,8 +125,8 @@ namespace lab8
                 //viewListStore.AppendValues(item[cn[6]]);
                 
                 lColumn.PackStart(Cell6, true);
-                lColumn.AddAttribute(Cell6, "text", 7);
-            }
+                lColumn.AddAttribute(Cell6, "text", 7);*/
+            
             
 
 

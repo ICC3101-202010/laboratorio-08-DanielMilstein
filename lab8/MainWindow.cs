@@ -159,7 +159,16 @@ public partial class MainWindow : Gtk.Window
             LocalController.Locals.Add(store);
         }
 
-        DoneLabel.Text = $"Local N˚ {LocalController.Locals.Count} created!";
+        int id2 = LocalController.Locals.Count;
+
+        DoneLabel.Text = $"Local N˚ {id2} created!\n";
+        Dictionary<int, Dictionary<string, string>> dict = LocalController.FillDict();
+        string t = $"Name: {dict[id2]["Name"]}\n";
+        string u = $"Owner: {dict[id2]["Owner"]}\n";
+        string v = $"Business Hours: {dict[id2]["Business Hours"]}\n";
+        DoneLabel.Text += t;
+        DoneLabel.Text += u;
+        DoneLabel.Text += v;
         DoneLabel.Show();
         Back();
     }
