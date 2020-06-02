@@ -1,0 +1,9 @@
+/Users/danielmilstein/Desktop/FoskoVM/laboratorio-08-DanielMilstein/lab8/bin/Debug/lab8.exe
+/Users/danielmilstein/Desktop/FoskoVM/laboratorio-08-DanielMilstein/lab8/bin/Debug/lab8.pdb
+/Users/danielmilstein/Desktop/FoskoVM/laboratorio-08-DanielMilstein/lab8/obj/anycpu/Debug/lab8.csprojAssemblyReference.cache
+/Users/danielmilstein/Desktop/FoskoVM/laboratorio-08-DanielMilstein/lab8/obj/anycpu/Debug/lab8.csproj.CoreCompileInputs.cache
+/Users/danielmilstein/Desktop/FoskoVM/laboratorio-08-DanielMilstein/lab8/obj/anycpu/Debug/lab8.exe
+/Users/danielmilstein/Desktop/FoskoVM/laboratorio-08-DanielMilstein/lab8/obj/anycpu/Debug/lab8.pdb
+/Users/danielmilstein/Desktop/FoskoVM/laboratorio-08-DanielMilstein/lab8/bin/Debug/ClassLib.dll
+/Users/danielmilstein/Desktop/FoskoVM/laboratorio-08-DanielMilstein/lab8/bin/Debug/ClassLib.pdb
+/Users/danielmilstein/Desktop/FoskoVM/laboratorio-08-DanielMilstein/lab8/obj/anycpu/Debug/lab8.csproj.CopyComplete

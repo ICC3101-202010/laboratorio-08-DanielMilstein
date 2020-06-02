@@ -14,7 +14,7 @@
       </source>
     </icon-set>
   </icon-factory>
-  <widget class="Gtk.Window" id="MainWindow" design-size="393 340">
+  <widget class="Gtk.Window" id="MainWindow" design-size="390 351">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -41,6 +41,7 @@
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">View</property>
                     <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnViewButtonClicked" />
                   </widget>
                   <packing>
                     <property name="X">284</property>
@@ -65,18 +66,311 @@
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">Add</property>
                     <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnAddButtonClicked" />
                   </widget>
                   <packing>
                     <property name="X">41</property>
                     <property name="Y">274</property>
                   </packing>
                 </child>
+                <child>
+                  <widget class="Gtk.Fixed" id="fixed1">
+                    <property name="MemberName" />
+                    <property name="HasWindow">False</property>
+                  </widget>
+                  <packing>
+                    <property name="X">312</property>
+                    <property name="Y">185</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <widget class="Gtk.Entry" id="NameBox">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="IsEditable">True</property>
+                    <property name="InvisibleChar">●</property>
+                  </widget>
+                  <packing>
+                    <property name="X">138</property>
+                    <property name="Y">35</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.ComboBox" id="Typebox">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes">Type of local
+Cine
+Hobbie
+Restaurant
+Store</property>
+                    <property name="Active">0</property>
+                    <signal name="Changed" handler="OnTypeboxChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">141</property>
+                    <property name="Y">90</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="NameLabel">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="LabelProp" translatable="yes">Name</property>
+                  </widget>
+                  <packing>
+                    <property name="X">30</property>
+                    <property name="Y">38</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="TypeLabeld">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="LabelProp" translatable="yes">Type</property>
+                  </widget>
+                  <packing>
+                    <property name="X">30</property>
+                    <property name="Y">96</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="OwnerLabel">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="LabelProp" translatable="yes">Owner</property>
+                  </widget>
+                  <packing>
+                    <property name="X">30</property>
+                    <property name="Y">129</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Entry" id="OwnerBox">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="IsEditable">True</property>
+                    <property name="InvisibleChar">●</property>
+                  </widget>
+                  <packing>
+                    <property name="X">138</property>
+                    <property name="Y">126</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Button" id="DoneButton">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextOnly</property>
+                    <property name="Label" translatable="yes">Add local</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnDoneButtonClicked" />
+                  </widget>
+                  <packing>
+                    <property name="X">212</property>
+                    <property name="Y">274</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Button" id="BackButton">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextOnly</property>
+                    <property name="Label" translatable="yes">Back</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnBackButtonClicked" />
+                  </widget>
+                  <packing>
+                    <property name="X">82</property>
+                    <property name="Y">274</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="ScreenSpin">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="Upper">100</property>
+                    <property name="PageIncrement">10</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">138</property>
+                    <property name="Y">160</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="ScreenLabel">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="LabelProp" translatable="yes">Screens</property>
+                  </widget>
+                  <packing>
+                    <property name="X">30</property>
+                    <property name="Y">164</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.CheckButton" id="ExTablesButton">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="Label" translatable="yes" />
+                    <property name="DrawIndicator">True</property>
+                    <property name="HasLabel">True</property>
+                    <property name="UseUnderline">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">132</property>
+                    <property name="Y">188</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.ComboBoxEntry" id="CatBox">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="IsTextCombo">True</property>
+                    <property name="Items" translatable="yes" />
+                  </widget>
+                  <packing>
+                    <property name="X">138</property>
+                    <property name="Y">216</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="CatLabel">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="LabelProp" translatable="yes">Categories</property>
+                  </widget>
+                  <packing>
+                    <property name="X">30</property>
+                    <property name="Y">225</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="ExcLabel">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="LabelProp" translatable="yes">Exclusive Tables</property>
+                  </widget>
+                  <packing>
+                    <property name="X">30</property>
+                    <property name="Y">194</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="HoursLabel">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="LabelProp" translatable="yes">Bussiness Hours</property>
+                  </widget>
+                  <packing>
+                    <property name="X">30</property>
+                    <property name="Y">67</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Entry" id="HoursBox">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="IsEditable">True</property>
+                    <property name="InvisibleChar">●</property>
+                  </widget>
+                  <packing>
+                    <property name="X">138</property>
+                    <property name="Y">64</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
               </widget>
             </child>
           </widget>
         </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="lab8.Window2" design-size="400 300">
+    <property name="MemberName" />
+    <property name="Visible">False</property>
+    <property name="Title" translatable="yes">Window2</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="DestroyWithParent">True</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
         <child>
-          <placeholder />
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TreeView" id="ViewTree2">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <signal name="DeleteEvent" handler="OnViewTree2DeleteEvent" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="Back2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Back</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnBack2Clicked" />
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
         </child>
       </widget>
     </child>

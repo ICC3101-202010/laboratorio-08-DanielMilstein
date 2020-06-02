@@ -8,5 +8,7 @@ namespace lab8
         {
             NofScreens = screens;
         }
+
+        public int GetScreens() { return NofScreens; }
     }
 }

@@ -9,5 +9,7 @@ namespace lab8
         {
             ExclTables = tables;
         }
+
+        public bool GetTables() { return ExclTables; }
     }
 }

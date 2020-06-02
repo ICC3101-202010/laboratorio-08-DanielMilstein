@@ -12,5 +12,10 @@ namespace lab8
             win.Show();
             Application.Run();
         }
+
+
+        
+
+
     }
 }
