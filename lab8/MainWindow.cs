@@ -134,6 +134,7 @@ public partial class MainWindow : Gtk.Window
         {
             Cine cine = new Cine(NameBox.Text, id, HoursBox.Text, OwnerBox.Text, ScreenSpin.ValueAsInt);
             LocalController.Locals.Add(cine);
+
         }
 
         else if (ty == "Hobbie")
@@ -163,12 +164,12 @@ public partial class MainWindow : Gtk.Window
 
         DoneLabel.Text = $"Local N˚ {id2} created!\n";
         Dictionary<int, Dictionary<string, string>> dict = LocalController.FillDict();
-        string t = $"Name: {dict[id2]["Name"]}\n";
-        string u = $"Owner: {dict[id2]["Owner"]}\n";
-        string v = $"Business Hours: {dict[id2]["Business Hours"]}\n";
-        DoneLabel.Text += t;
-        DoneLabel.Text += u;
-        DoneLabel.Text += v;
+        string name = $"Name: {dict[id2]["Name"]}\n";
+        string owner = $"Owner: {dict[id2]["Owner"]}\n";
+        string bh = $"Business Hours: {dict[id2]["Business Hours"]}\n";
+        DoneLabel.Text += name;
+        DoneLabel.Text += owner;
+        DoneLabel.Text += bh;
         DoneLabel.Show();
         Back();
     }
