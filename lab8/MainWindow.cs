@@ -6,7 +6,7 @@ using lab8;
 
 public partial class MainWindow : Gtk.Window
 {
-    private static List<Local> Locals = new List<Local>();
+    
     public Window2 w2 = new Window2();
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
@@ -24,12 +24,14 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnViewButtonClicked(object sender, EventArgs e)
     {
-        w2.FillDict(Locals);
+        LocalController.FillDict(LocalController.Locals);
+        
+        
         w2.Show();
         
     }
 
-    public List<Local> GetLocals() { return Locals; }
+    
 
     protected void OnAddButtonClicked(object sender, EventArgs e)
     {
@@ -124,33 +126,39 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnDoneButtonClicked(object sender, EventArgs e)
     {
-        
+
         string ty = Typebox.ActiveText;
-        int id = Locals.Count + 1;
+        int id = LocalController.Locals.Count + 1;
         if (ty == "Cine")
         {
             Cine cine = new Cine(NameBox.Text, id, HoursBox.Text, OwnerBox.Text, ScreenSpin.ValueAsInt);
-            Locals.Add(cine);
+            LocalController.Locals.Add(cine);
             Back();
         }
 
         else if (ty == "Hobbie")
         {
             Hobbie hobbie = new Hobbie(NameBox.Text, id, HoursBox.Text, OwnerBox.Text);
-            Locals.Add(hobbie);
+            LocalController.Locals.Add(hobbie);
             Back();
         }
         else if (ty == "Restaurant")
         {
             Restaurant restaurant = new Restaurant(NameBox.Text, id, HoursBox.Text, OwnerBox.Text, ExTablesButton.Active);
-            Locals.Add(restaurant);
+            LocalController.Locals.Add(restaurant);
             Back();
         }
 
         else if (ty == "Store")
         {
-            Store store = new Store(NameBox.Text, id, HoursBox.Text, OwnerBox.Text, new List<string>());
-            Locals.Add(store);
+            string cats = CatBox.Text;
+            List<string> x = new List<string>();
+            foreach (string cat in cats.Split(','))
+            {
+                x.Add(cat);
+            }
+            Store store = new Store(NameBox.Text, id, HoursBox.Text, OwnerBox.Text, x);
+            LocalController.Locals.Add(store);
             Back();
         }
     }

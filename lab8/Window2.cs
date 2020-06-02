@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using ClassLib;
 
 namespace lab8
 {
     public partial class Window2 : Gtk.Window
     {
-        public Dictionary<int, Dictionary<string, string>> dictionary = new Dictionary<int, Dictionary<string, string>>();
+        
 
         public List<string> cn = new List<string>() {"Name", "Business Hours", "Owner"
         , "Screens", "Categories", "Exclusive tables", "Local type", "ID"};
@@ -45,44 +46,51 @@ namespace lab8
             Gtk.ListStore viewListStore = new Gtk.ListStore(typeof(string), typeof(string), typeof(string)
                 , typeof(string), typeof(string), typeof(string), typeof(string));
 
-            
 
-            foreach (var item in dictionary.Values)
+            ViewTree2.Model = viewListStore;
+            foreach (var item in LocalController.dictionary.Values)
             {
                 viewListStore.AppendValues(item["ID"]);
                 Gtk.CellRendererText IDCell = new Gtk.CellRendererText();
                 idColumn.PackStart(IDCell, true);
-                idColumn.AddAttribute(IDCell, item["ID"], 0);
+                idColumn.AddAttribute(IDCell, "text", 0);
 
+                viewListStore.AppendValues(item[cn[0]]);
                 Gtk.CellRendererText NameCell = new Gtk.CellRendererText();
                 nameColumn.PackStart(NameCell, true);
-                nameColumn.AddAttribute(NameCell, item[cn[0]], 1);
+                nameColumn.AddAttribute(NameCell, "text", 1);
 
+                viewListStore.AppendValues(item[cn[1]]);
                 Gtk.CellRendererText Cell1 = new Gtk.CellRendererText();
                 hColumn.PackStart(Cell1, true);
-                hColumn.AddAttribute(Cell1, item[cn[1]], 2);
+                hColumn.AddAttribute(Cell1, "text", 2);
 
+                viewListStore.AppendValues(item[cn[2]]);
                 Gtk.CellRendererText Cell2 = new Gtk.CellRendererText();
                 oColumn.PackStart(Cell2, true);
-                oColumn.AddAttribute(Cell2, item[cn[2]], 3);
+                oColumn.AddAttribute(Cell2, "text", 3);
 
+                viewListStore.AppendValues(item[cn[3]]);
                 Gtk.CellRendererText Cell3 = new Gtk.CellRendererText();
                 sColumn.PackStart(Cell3, true);
-                sColumn.AddAttribute(Cell3, item[cn[3]], 4);
+                sColumn.AddAttribute(Cell3, "text", 4);
 
+                viewListStore.AppendValues(item[cn[4]]);
                 Gtk.CellRendererText Cell4 = new Gtk.CellRendererText();
                 cColumn.PackStart(Cell4, true);
-                cColumn.AddAttribute(Cell4, item[cn[4]], 5);
+                cColumn.AddAttribute(Cell4, "text", 5);
 
+                viewListStore.AppendValues(item[cn[5]]);
                 Gtk.CellRendererText Cell5 = new Gtk.CellRendererText();
                 tColumn.PackStart(Cell5, true);
-                tColumn.AddAttribute(Cell5, item[cn[5]], 6);
+                tColumn.AddAttribute(Cell5, "text", 6);
 
+                viewListStore.AppendValues(item[cn[6]]);
                 Gtk.CellRendererText Cell6 = new Gtk.CellRendererText();
                 lColumn.PackStart(Cell6, true);
-                lColumn.AddAttribute(Cell6, item[cn[6]], 7);
+                lColumn.AddAttribute(Cell6, "text", 7);
             }
-            ViewTree2.Model = viewListStore;
+            
 
 
 
@@ -97,77 +105,7 @@ namespace lab8
 
         
 
-        public void FillDict(List<Local> locals)
-        {
-            foreach (Local local in locals)
-            {
-                int id = local.GetId();
-                string lname = local.GetName();
-                string bhours = local.GetHours();
-                string owner = local.GetOwner();
-                string type = "";
-                Dictionary<string, string> thisloc = new Dictionary<string, string>();
-                thisloc.Add(cn[0], lname);
-                thisloc.Add(cn[1], bhours);
-                thisloc.Add(cn[2], owner);
-                thisloc.Add(cn[7], id.ToString());
-                if (local.GetType() == typeof(Cine))
-                {
-                    Cine cine = (Cine)local;
-                    string nScreens = cine.GetScreens().ToString();
-                    type = "Cine";
-                    thisloc.Add(cn[3], nScreens);
-                    thisloc.Add(cn[4], "NA");
-                    thisloc.Add(cn[5], "NA");
-                    thisloc.Add(cn[6], type);
-
-
-                }
-
-                else if (local.GetType() == typeof(Restaurant))
-                {
-                    string tables = "";
-                    Restaurant res = (Restaurant)local;
-                    type = "Restaurant";
-                    if (res.GetTables() == true)
-                    {
-                        tables = "Yes";
-                    }
-                    else
-                    {
-                        tables = "No";
-                    }
-                    thisloc.Add(cn[3], "NA");
-                    thisloc.Add(cn[4], "NA");
-                    thisloc.Add(cn[5], tables);
-                    thisloc.Add(cn[6], type);
-                }
-
-                else if (local.GetType() == typeof(Store))
-                {
-                    Store store = (Store)local;
-                    type = "Store";
-                    thisloc.Add(cn[3], "NA");
-                    thisloc.Add(cn[4], "TBA");
-                    thisloc.Add(cn[5], "NA");
-                    thisloc.Add(cn[6], type);
-
-
-                }
-
-                else if (local.GetType() == typeof(Hobbie))
-                {
-                    type = "Hobbie";
-                    thisloc.Add(cn[3], "NA");
-                    thisloc.Add(cn[4], "NA");
-                    thisloc.Add(cn[5], "NA");
-                    thisloc.Add(cn[6], type);
-                }
-                dictionary.Add(id, thisloc);
-
-
-            }
-        }
+        
 
         protected void OnViewTree2DeleteEvent(object o, Gtk.DeleteEventArgs args)
         {

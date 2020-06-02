@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{0E6B4576-1076-4D55-B064-02506A9388B8}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Window2.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MainWindow.cs">
     <Files>
       <File FileName="Program.cs" Line="21" Column="2" />
-      <File FileName="MainWindow.cs" />
+      <File FileName="MainWindow.cs" Line="128" Column="40" />
       <File FileName="ClassLib/Local.cs" />
       <File FileName="ClassLib/Cine.cs" />
-      <File FileName="Window2.cs" Line="80" Column="45" />
+      <File FileName="Window2.cs" />
       <File FileName="ClassLib/Hobbie.cs" />
       <File FileName="ClassLib/Restaurant.cs" />
       <File FileName="ClassLib/Store.cs" />
+      <File FileName="ClassLib/LocalController.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,7 +21,7 @@
             <Node name="lab8" expanded="True">
               <Node name="UserInterface" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="Window2.cs" selected="True" />
+              <Node name="MainWindow.cs" selected="True" />
             </Node>
           </Node>
         </State>

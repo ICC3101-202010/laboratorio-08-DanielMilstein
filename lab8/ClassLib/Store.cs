@@ -11,5 +11,10 @@ namespace lab8
         {
             Categories = categories;
         }
+
+        public List<string> GetCats()
+            {
+                return Categories;
+            }
     }
 }

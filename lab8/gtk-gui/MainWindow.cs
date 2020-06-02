@@ -39,8 +39,6 @@ public partial class MainWindow
 
 	private global::Gtk.CheckButton ExTablesButton;
 
-	private global::Gtk.ComboBoxEntry CatBox;
-
 	private global::Gtk.Label CatLabel;
 
 	private global::Gtk.Label ExcLabel;
@@ -48,6 +46,12 @@ public partial class MainWindow
 	private global::Gtk.Label HoursLabel;
 
 	private global::Gtk.Entry HoursBox;
+
+	private global::Gtk.Label ViewLabel;
+
+	private global::Gtk.Fixed fixed2;
+
+	private global::Gtk.Entry CatBox;
 
 	protected virtual void Build()
 	{
@@ -214,36 +218,29 @@ public partial class MainWindow
 		w15.X = 132;
 		w15.Y = 188;
 		// Container child panel1.Gtk.Fixed+FixedChild
-		this.CatBox = global::Gtk.ComboBoxEntry.NewText();
-		this.CatBox.Name = "CatBox";
-		this.panel1.Add(this.CatBox);
-		global::Gtk.Fixed.FixedChild w16 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.CatBox]));
-		w16.X = 138;
-		w16.Y = 216;
-		// Container child panel1.Gtk.Fixed+FixedChild
 		this.CatLabel = new global::Gtk.Label();
 		this.CatLabel.Name = "CatLabel";
-		this.CatLabel.LabelProp = global::Mono.Unix.Catalog.GetString("Categories");
+		this.CatLabel.LabelProp = global::Mono.Unix.Catalog.GetString("Categories\n(Separated by ,)");
 		this.panel1.Add(this.CatLabel);
-		global::Gtk.Fixed.FixedChild w17 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.CatLabel]));
-		w17.X = 30;
-		w17.Y = 225;
+		global::Gtk.Fixed.FixedChild w16 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.CatLabel]));
+		w16.X = 30;
+		w16.Y = 225;
 		// Container child panel1.Gtk.Fixed+FixedChild
 		this.ExcLabel = new global::Gtk.Label();
 		this.ExcLabel.Name = "ExcLabel";
 		this.ExcLabel.LabelProp = global::Mono.Unix.Catalog.GetString("Exclusive Tables");
 		this.panel1.Add(this.ExcLabel);
-		global::Gtk.Fixed.FixedChild w18 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.ExcLabel]));
-		w18.X = 30;
-		w18.Y = 194;
+		global::Gtk.Fixed.FixedChild w17 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.ExcLabel]));
+		w17.X = 30;
+		w17.Y = 194;
 		// Container child panel1.Gtk.Fixed+FixedChild
 		this.HoursLabel = new global::Gtk.Label();
 		this.HoursLabel.Name = "HoursLabel";
 		this.HoursLabel.LabelProp = global::Mono.Unix.Catalog.GetString("Bussiness Hours");
 		this.panel1.Add(this.HoursLabel);
-		global::Gtk.Fixed.FixedChild w19 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.HoursLabel]));
-		w19.X = 30;
-		w19.Y = 67;
+		global::Gtk.Fixed.FixedChild w18 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.HoursLabel]));
+		w18.X = 30;
+		w18.Y = 67;
 		// Container child panel1.Gtk.Fixed+FixedChild
 		this.HoursBox = new global::Gtk.Entry();
 		this.HoursBox.CanFocus = true;
@@ -251,9 +248,34 @@ public partial class MainWindow
 		this.HoursBox.IsEditable = true;
 		this.HoursBox.InvisibleChar = '●';
 		this.panel1.Add(this.HoursBox);
-		global::Gtk.Fixed.FixedChild w20 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.HoursBox]));
-		w20.X = 138;
-		w20.Y = 64;
+		global::Gtk.Fixed.FixedChild w19 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.HoursBox]));
+		w19.X = 138;
+		w19.Y = 64;
+		// Container child panel1.Gtk.Fixed+FixedChild
+		this.ViewLabel = new global::Gtk.Label();
+		this.ViewLabel.Name = "ViewLabel";
+		this.panel1.Add(this.ViewLabel);
+		global::Gtk.Fixed.FixedChild w20 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.ViewLabel]));
+		w20.X = 157;
+		w20.Y = 19;
+		// Container child panel1.Gtk.Fixed+FixedChild
+		this.fixed2 = new global::Gtk.Fixed();
+		this.fixed2.Name = "fixed2";
+		this.fixed2.HasWindow = false;
+		this.panel1.Add(this.fixed2);
+		global::Gtk.Fixed.FixedChild w21 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.fixed2]));
+		w21.X = 250;
+		w21.Y = 173;
+		// Container child panel1.Gtk.Fixed+FixedChild
+		this.CatBox = new global::Gtk.Entry();
+		this.CatBox.CanFocus = true;
+		this.CatBox.Name = "CatBox";
+		this.CatBox.IsEditable = true;
+		this.CatBox.InvisibleChar = '●';
+		this.panel1.Add(this.CatBox);
+		global::Gtk.Fixed.FixedChild w22 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.CatBox]));
+		w22.X = 138;
+		w22.Y = 222;
 		this.GtkAlignment.Add(this.panel1);
 		this.frame1.Add(this.GtkAlignment);
 		this.Add(this.frame1);
@@ -274,11 +296,12 @@ public partial class MainWindow
 		this.ScreenSpin.Hide();
 		this.ScreenLabel.Hide();
 		this.ExTablesButton.Hide();
-		this.CatBox.Hide();
 		this.CatLabel.Hide();
 		this.ExcLabel.Hide();
 		this.HoursLabel.Hide();
 		this.HoursBox.Hide();
+		this.ViewLabel.Hide();
+		this.CatBox.Hide();
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.ViewButton.Clicked += new global::System.EventHandler(this.OnViewButtonClicked);

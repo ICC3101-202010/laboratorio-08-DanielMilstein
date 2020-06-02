@@ -236,22 +236,11 @@ Store</property>
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.ComboBoxEntry" id="CatBox">
-                    <property name="MemberName" />
-                    <property name="Visible">False</property>
-                    <property name="IsTextCombo">True</property>
-                    <property name="Items" translatable="yes" />
-                  </widget>
-                  <packing>
-                    <property name="X">138</property>
-                    <property name="Y">216</property>
-                  </packing>
-                </child>
-                <child>
                   <widget class="Gtk.Label" id="CatLabel">
                     <property name="MemberName" />
                     <property name="Visible">False</property>
-                    <property name="LabelProp" translatable="yes">Categories</property>
+                    <property name="LabelProp" translatable="yes">Categories
+(Separated by ,)</property>
                   </widget>
                   <packing>
                     <property name="X">30</property>
@@ -319,6 +308,45 @@ Store</property>
                 </child>
                 <child>
                   <placeholder />
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="ViewLabel">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                  </widget>
+                  <packing>
+                    <property name="X">157</property>
+                    <property name="Y">19</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Fixed" id="fixed2">
+                    <property name="MemberName" />
+                    <property name="HasWindow">False</property>
+                  </widget>
+                  <packing>
+                    <property name="X">250</property>
+                    <property name="Y">173</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <widget class="Gtk.Entry" id="CatBox">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="IsEditable">True</property>
+                    <property name="InvisibleChar">●</property>
+                  </widget>
+                  <packing>
+                    <property name="X">138</property>
+                    <property name="Y">222</property>
+                  </packing>
                 </child>
               </widget>
             </child>
