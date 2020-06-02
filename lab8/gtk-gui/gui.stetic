@@ -348,6 +348,16 @@ Store</property>
                     <property name="Y">222</property>
                   </packing>
                 </child>
+                <child>
+                  <widget class="Gtk.Label" id="DoneLabel">
+                    <property name="MemberName" />
+                    <property name="Visible">False</property>
+                  </widget>
+                  <packing>
+                    <property name="X">146</property>
+                    <property name="Y">12</property>
+                  </packing>
+                </child>
               </widget>
             </child>
           </widget>

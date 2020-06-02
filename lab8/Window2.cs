@@ -15,8 +15,10 @@ namespace lab8
                 base(Gtk.WindowType.Toplevel)
         {
             this.Build();
+            
             Deletable = false;
-
+            
+            Dictionary<int, Dictionary<string, string>> dict = LocalController.FillDict();
             Gtk.TreeViewColumn nameColumn = new Gtk.TreeViewColumn();
             nameColumn.Title = "Name";
             Gtk.TreeViewColumn idColumn = new Gtk.TreeViewColumn();
@@ -48,45 +50,58 @@ namespace lab8
 
 
             ViewTree2.Model = viewListStore;
-            foreach (var item in LocalController.dictionary.Values)
+            Gtk.CellRendererText IDCell = new Gtk.CellRendererText();
+            Gtk.CellRendererText NameCell = new Gtk.CellRendererText();
+            Gtk.CellRendererText Cell1 = new Gtk.CellRendererText();
+            Gtk.CellRendererText Cell2 = new Gtk.CellRendererText();
+            Gtk.CellRendererText Cell3 = new Gtk.CellRendererText();
+            Gtk.CellRendererText Cell4 = new Gtk.CellRendererText();
+            Gtk.CellRendererText Cell5 = new Gtk.CellRendererText();
+            Gtk.CellRendererText Cell6 = new Gtk.CellRendererText();
+
+
+
+
+            foreach (Dictionary<string,string> item in dict.Values)
             {
-                viewListStore.AppendValues(item["ID"]);
-                Gtk.CellRendererText IDCell = new Gtk.CellRendererText();
+                viewListStore.AppendValues(item["ID"], item[cn[0]], item[cn[1]], item[cn[2]],
+                    item[cn[3]], item[cn[4]], item[cn[5]], item[cn[6]]);
+                
                 idColumn.PackStart(IDCell, true);
                 idColumn.AddAttribute(IDCell, "text", 0);
 
-                viewListStore.AppendValues(item[cn[0]]);
-                Gtk.CellRendererText NameCell = new Gtk.CellRendererText();
+                //viewListStore.AppendValues(item[cn[0]]);
+                
                 nameColumn.PackStart(NameCell, true);
                 nameColumn.AddAttribute(NameCell, "text", 1);
 
-                viewListStore.AppendValues(item[cn[1]]);
-                Gtk.CellRendererText Cell1 = new Gtk.CellRendererText();
+                //viewListStore.AppendValues(item[cn[1]]);
+                
                 hColumn.PackStart(Cell1, true);
                 hColumn.AddAttribute(Cell1, "text", 2);
 
-                viewListStore.AppendValues(item[cn[2]]);
-                Gtk.CellRendererText Cell2 = new Gtk.CellRendererText();
+                //viewListStore.AppendValues(item[cn[2]]);
+                
                 oColumn.PackStart(Cell2, true);
                 oColumn.AddAttribute(Cell2, "text", 3);
 
-                viewListStore.AppendValues(item[cn[3]]);
-                Gtk.CellRendererText Cell3 = new Gtk.CellRendererText();
+                //viewListStore.AppendValues(item[cn[3]]);
+                
                 sColumn.PackStart(Cell3, true);
                 sColumn.AddAttribute(Cell3, "text", 4);
 
-                viewListStore.AppendValues(item[cn[4]]);
-                Gtk.CellRendererText Cell4 = new Gtk.CellRendererText();
+                //viewListStore.AppendValues(item[cn[4]]);
+                
                 cColumn.PackStart(Cell4, true);
                 cColumn.AddAttribute(Cell4, "text", 5);
 
-                viewListStore.AppendValues(item[cn[5]]);
-                Gtk.CellRendererText Cell5 = new Gtk.CellRendererText();
+                //viewListStore.AppendValues(item[cn[5]]);
+                
                 tColumn.PackStart(Cell5, true);
                 tColumn.AddAttribute(Cell5, "text", 6);
 
-                viewListStore.AppendValues(item[cn[6]]);
-                Gtk.CellRendererText Cell6 = new Gtk.CellRendererText();
+                //viewListStore.AppendValues(item[cn[6]]);
+                
                 lColumn.PackStart(Cell6, true);
                 lColumn.AddAttribute(Cell6, "text", 7);
             }

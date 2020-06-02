@@ -6,14 +6,16 @@ namespace ClassLib
 {
     public static class LocalController
     {
-        public static Dictionary<int, Dictionary<string, string>> dictionary = new Dictionary<int, Dictionary<string, string>>();
+        
         public static List<string> cn = new List<string>() {"Name", "Business Hours", "Owner"
         , "Screens", "Categories", "Exclusive tables", "Local type", "ID"};
         public static List<Local> Locals = new List<Local>();
 
 
-        public static void FillDict(List<Local> locals)
+        public static Dictionary<int, Dictionary<string, string>> FillDict()
         {
+            List<Local> locals = Locals;
+            Dictionary<int, Dictionary<string, string>> dictionary = new Dictionary<int, Dictionary<string, string>>();
             foreach (Local local in locals)
             {
                 int id = local.GetId();
@@ -89,6 +91,8 @@ namespace ClassLib
 
 
             }
+
+            return dictionary;
         }
     }
 }

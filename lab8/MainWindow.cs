@@ -8,11 +8,12 @@ public partial class MainWindow : Gtk.Window
 {
     
     public Window2 w2 = new Window2();
+    public List<Local> Locals;
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
         Build();
-        
+        Locals = new List<Local>();
 
     }
 
@@ -24,9 +25,7 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnViewButtonClicked(object sender, EventArgs e)
     {
-        LocalController.FillDict(LocalController.Locals);
-        
-        
+        DoneLabel.Hide();
         w2.Show();
         
     }
@@ -35,6 +34,7 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnAddButtonClicked(object sender, EventArgs e)
     {
+        DoneLabel.Hide();
         NameLabel.Show();
         NameBox.Show();
         TypeLabeld.Show();
@@ -93,6 +93,7 @@ public partial class MainWindow : Gtk.Window
     protected void OnBackButtonClicked(object sender, EventArgs e)
     {
         Back();
+        DoneLabel.Hide();
     }
 
     protected void Back()
@@ -128,25 +129,22 @@ public partial class MainWindow : Gtk.Window
     {
 
         string ty = Typebox.ActiveText;
-        int id = LocalController.Locals.Count + 1;
+        int id = Locals.Count + 1;
         if (ty == "Cine")
         {
             Cine cine = new Cine(NameBox.Text, id, HoursBox.Text, OwnerBox.Text, ScreenSpin.ValueAsInt);
             LocalController.Locals.Add(cine);
-            Back();
         }
 
         else if (ty == "Hobbie")
         {
             Hobbie hobbie = new Hobbie(NameBox.Text, id, HoursBox.Text, OwnerBox.Text);
             LocalController.Locals.Add(hobbie);
-            Back();
         }
         else if (ty == "Restaurant")
         {
             Restaurant restaurant = new Restaurant(NameBox.Text, id, HoursBox.Text, OwnerBox.Text, ExTablesButton.Active);
             LocalController.Locals.Add(restaurant);
-            Back();
         }
 
         else if (ty == "Store")
@@ -159,7 +157,10 @@ public partial class MainWindow : Gtk.Window
             }
             Store store = new Store(NameBox.Text, id, HoursBox.Text, OwnerBox.Text, x);
             LocalController.Locals.Add(store);
-            Back();
         }
+
+        DoneLabel.Text = $"Local N˚ {LocalController.Locals.Count} created!";
+        DoneLabel.Show();
+        Back();
     }
 }

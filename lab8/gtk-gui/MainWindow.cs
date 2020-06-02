@@ -53,6 +53,8 @@ public partial class MainWindow
 
 	private global::Gtk.Entry CatBox;
 
+	private global::Gtk.Label DoneLabel;
+
 	protected virtual void Build()
 	{
 		global::Stetic.Gui.Initialize(this);
@@ -276,6 +278,13 @@ public partial class MainWindow
 		global::Gtk.Fixed.FixedChild w22 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.CatBox]));
 		w22.X = 138;
 		w22.Y = 222;
+		// Container child panel1.Gtk.Fixed+FixedChild
+		this.DoneLabel = new global::Gtk.Label();
+		this.DoneLabel.Name = "DoneLabel";
+		this.panel1.Add(this.DoneLabel);
+		global::Gtk.Fixed.FixedChild w23 = ((global::Gtk.Fixed.FixedChild)(this.panel1[this.DoneLabel]));
+		w23.X = 146;
+		w23.Y = 12;
 		this.GtkAlignment.Add(this.panel1);
 		this.frame1.Add(this.GtkAlignment);
 		this.Add(this.frame1);
@@ -302,6 +311,7 @@ public partial class MainWindow
 		this.HoursBox.Hide();
 		this.ViewLabel.Hide();
 		this.CatBox.Hide();
+		this.DoneLabel.Hide();
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.ViewButton.Clicked += new global::System.EventHandler(this.OnViewButtonClicked);
